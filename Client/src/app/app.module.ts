@@ -10,6 +10,8 @@ import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
 
 
 @NgModule({
@@ -24,11 +26,13 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
     CoreModule,
     HomeModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSpinnerModule
 
   ],
   providers: [
-    { provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true }
+    { provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true },
+    { provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true }
   ],
   bootstrap: [AppComponent]
 })
