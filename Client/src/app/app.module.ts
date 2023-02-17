@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { NgxSpinner, NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptors';
     HomeModule,
     RouterModule,
     AppRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    BsDropdownModule.forRoot()
 
   ],
   providers: [
